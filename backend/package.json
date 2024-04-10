@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
@@ -16,8 +17,12 @@
   },
   "scripts": {
     "start": "nodemon index.js",
-    "data:import": "node seeder",
-    "data:destroy": "node seeder -d"
+    "data:import1": "node seeder",
+    "data:import2": "node seeder2",
+    "data:destroy1": "node seeder -d",
+    "data:destroy2": "node seeder2 -d",
+    "data:import": "npm run data:import1 && npm run data:import2",
+    "data:destroy": "npm run data:destroy1 && npm run data:destroy2"
   },
   "keywords": [],
   "author": "",

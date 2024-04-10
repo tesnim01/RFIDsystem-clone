@@ -5,7 +5,7 @@ const path = require("path");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const studentRoute = require("./routes/students");
-  
+const authRoute = require("./routes/auth");
 //setup cors for our project
 app.use(cors());
 //load static files
@@ -17,11 +17,11 @@ dotenv.config();
 app.use(express.json());
 
 //connect to our mongodb atlas database
-mongoose
-  .connect(process.env.MONGO_DB_URL)
+mongoose.connect(process.env.MONGO_DB_URL)
  
 //load our rest api routes
 app.use("/api/students", studentRoute);
+app.use("/api/auth", authRoute);
 
 //start the server
 app.listen("5000", () => {
